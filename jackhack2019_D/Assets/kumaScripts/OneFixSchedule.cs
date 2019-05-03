@@ -6,31 +6,30 @@ using UnityEngine.UI;
 
 public class OneFixSchedule : ScheduleDate
 {
-    private TimeSpan starttime;
-    private DayOfWeek daze;
-    public Dropdown hourend;
-    public Dropdown minutesend;
-    public Dropdown week;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public TimeSpan starttime;
+    public DayOfWeek daze;
+   
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public new void SetTime()
+    public void SetTime(Dropdown hour,Dropdown minutes, Dropdown hourend,Dropdown minutesend)
     {
         starttime = new TimeSpan(hour.value, minutes.value, 0);
         spendtime = starttime - new TimeSpan(hourend.value, minutesend.value, 0);
     }
 
-    public void SetWeek()
+    public void SetWeek(Dropdown week)
     {
         daze = (DayOfWeek)week.value;
+    }
+
+    public OneFixSchedule SetAll(OneFixScheduleForm form)
+    {
+        SetTime(form.hour, form.minutes, form.hourend, form.minutesend);
+        SetWeek(form.week);
+        SetTitle(form.titlebox);
+        SetCategory(form.categorybox);
+        SetAnounce(form.anouncebox);
+        WriteMemo(form.memobox);
+
+        return this;
     }
 }

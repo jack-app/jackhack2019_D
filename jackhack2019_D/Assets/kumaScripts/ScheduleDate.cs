@@ -6,41 +6,45 @@ using UnityEngine.UI;
 
 public class ScheduleDate : MonoBehaviour
 {
-    protected TimeSpan spendtime;
-    protected string title;
-    protected string category;
-    protected string memo;
-    protected bool needanounce;
+    public TimeSpan spendtime;
+    public string title;
+    public string category;
+    public string memo;
+    public bool needanounce;
 
-    public Text titlebox;
-    public Text categorybox;
-    public Text memobox;
-    public Toggle anouncebox;
-    public Dropdown hour;
-    public Dropdown minutes;
-
-    public void SetTitle()
+    public void SetTitle(Text titlebox)
     {
         title = titlebox.text;
     }
 
-    public void SetCategory()
+    public void SetCategory(Text categorybox)
     {
         category = categorybox.text;
     }
 
-    public void WriteMemo()
+    public void WriteMemo(Text memobox)
     {
         memo = memobox.text;
     }
 
-    public void SetAnounce()
+    public void SetAnounce(Toggle anouncebox)
     {
         needanounce = anouncebox.isOn;
     }
 
-    public void SetTime()
+    public void SetTime(Dropdown hour,Dropdown minutes)
     {
         spendtime = new TimeSpan(hour.value, minutes.value, 0);
+    }
+
+    public ScheduleDate SetAll(OneScheduleForm form)
+    {
+        SetTitle(form.titlebox);
+        SetCategory(form.categorybox);
+        WriteMemo(form.memobox);
+        SetAnounce(form.anouncebox);
+        SetTime(form.hour, form.minutes);
+
+        return this;
     }
 }
