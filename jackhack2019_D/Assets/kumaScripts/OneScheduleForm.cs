@@ -27,6 +27,7 @@ public class OneScheduleForm : MonoBehaviour
     {
         var schedule = child.GetComponent<ScheduleDate>().SetAll(this);
         admin.GetComponent<RestoreSchedules>().date1.Add(schedule);
+        Destroy(gameObject);
     }
    
 }
