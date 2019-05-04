@@ -1308,7 +1308,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &832240924
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2130,7 +2130,7 @@ GameObject:
   - component: {fileID: 1401157032}
   - component: {fileID: 1401157035}
   m_Layer: 5
-  m_Name: NewButton
+  m_Name: add_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2573,7 +2573,7 @@ GameObject:
   - component: {fileID: 2026846024}
   - component: {fileID: 2026846023}
   m_Layer: 5
-  m_Name: MenuButton
+  m_Name: menu_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2901,6 +2901,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Task text
+      objectReference: {fileID: 0}
+    - target: {fileID: 7248490351260129685, guid: 016ec5b5f06da4d41b4bc2bfae07786a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7248490351260129686, guid: 016ec5b5f06da4d41b4bc2bfae07786a,
         type: 3}
