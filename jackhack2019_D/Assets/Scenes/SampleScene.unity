@@ -253,6 +253,7 @@ GameObject:
   - component: {fileID: 158589693}
   - component: {fileID: 158589692}
   - component: {fileID: 158589691}
+  - component: {fileID: 158589694}
   m_Layer: 5
   m_Name: 'nonpushoff_Button '
   m_TagString: Untagged
@@ -321,7 +322,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 158589692}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 158589694}
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 158589694}
+        m_MethodName: Inactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &158589692
@@ -361,6 +384,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 158589689}
   m_CullTransparentMesh: 0
+--- !u!114 &158589694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158589689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e7b358779b8c463185539ca20b0ea4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectToActivate:
+  - {fileID: 1391818245}
+  - {fileID: 865188356}
+  ObjectToInactivate:
+  - {fileID: 158589689}
+  - {fileID: 1324300688}
+  - {fileID: 85694874}
 --- !u!1 &340961027
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,7 +421,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &340961028
 RectTransform:
   m_ObjectHideFlags: 0
@@ -392,7 +434,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 878111387}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -799,7 +841,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u901A\u77E5\u306E\u983B\u5EA6\u3092\u5909\u3048\u308C\u307E\u3059"
+  m_Text: "\u901A\u77E5\u306E\u983B\u5EA6\u3092\u5909\u3048\u308B\u30A6\u30DB"
 --- !u!222 &825221221
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -820,6 +862,7 @@ GameObject:
   - component: {fileID: 865188360}
   - component: {fileID: 865188359}
   - component: {fileID: 865188358}
+  - component: {fileID: 865188361}
   m_Layer: 5
   m_Name: nonpushon_Button
   m_TagString: Untagged
@@ -888,7 +931,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 865188359}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 865188361}
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 865188361}
+        m_MethodName: Inactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &865188359
@@ -928,6 +993,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 865188356}
   m_CullTransparentMesh: 0
+--- !u!114 &865188361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865188356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e7b358779b8c463185539ca20b0ea4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectToActivate:
+  - {fileID: 1324300688}
+  - {fileID: 158589689}
+  - {fileID: 85694874}
+  ObjectToInactivate:
+  - {fileID: 865188356}
+  - {fileID: 1391818245}
 --- !u!1 &878111386
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,11 +1040,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1633328005}
+  - {fileID: 1186217958}
   - {fileID: 903789008}
   - {fileID: 1653693611}
   - {fileID: 1354220961}
   - {fileID: 340961028}
-  - {fileID: 1186217958}
   m_Father: {fileID: 1679193295}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1047,13 +1131,14 @@ GameObject:
   - component: {fileID: 903789011}
   - component: {fileID: 903789010}
   - component: {fileID: 903789009}
+  - component: {fileID: 903789012}
   m_Layer: 5
   m_Name: tsuuchi_Button
   m_TagString: sidemenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &903789008
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1066,7 +1151,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 878111387}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -1115,7 +1200,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 903789010}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 903789012}
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 903789012}
+        m_MethodName: Inactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &903789010
@@ -1155,6 +1262,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 903789007}
   m_CullTransparentMesh: 0
+--- !u!114 &903789012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903789007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e7b358779b8c463185539ca20b0ea4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectToActivate:
+  - {fileID: 1161435094}
+  - {fileID: 424425417}
+  - {fileID: 1897956981}
+  - {fileID: 1609222834}
+  - {fileID: 2026846021}
+  - {fileID: 1391818245}
+  - {fileID: 865188356}
+  - {fileID: 1391818245}
+  ObjectToInactivate:
+  - {fileID: 1157033243}
+  - {fileID: 1401157030}
+  - {fileID: 1517022225}
+  - {fileID: 878111386}
+  - {fileID: 1633328004}
+  - {fileID: 1186217957}
+  - {fileID: 903789007}
+  - {fileID: 1653693610}
+  - {fileID: 340961027}
+  - {fileID: 1354220960}
 --- !u!1 &1141180208
 GameObject:
   m_ObjectHideFlags: 0
@@ -1339,7 +1478,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1186217958
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1352,7 +1491,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 878111387}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -1534,7 +1673,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1354220961
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1547,7 +1686,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 878111387}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -1892,8 +2031,6 @@ MonoBehaviour:
   ObjectToActivate:
   - {fileID: 424425417}
   ObjectToInactivate: []
-  ActTag: 
-  InactTag: 
 --- !u!1 &1517022225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1983,7 +2120,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1609222835
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2021,13 +2158,14 @@ GameObject:
   - component: {fileID: 1633328008}
   - component: {fileID: 1633328007}
   - component: {fileID: 1633328006}
+  - component: {fileID: 1633328009}
   m_Layer: 5
   m_Name: grayback_Button
   m_TagString: sidemenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1633328005
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2089,7 +2227,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1633328007}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1633328009}
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1633328009}
+        m_MethodName: Inactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1633328007
@@ -2129,6 +2289,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1633328004}
   m_CullTransparentMesh: 0
+--- !u!114 &1633328009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1633328004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e7b358779b8c463185539ca20b0ea4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectToActivate:
+  - {fileID: 1157033243}
+  - {fileID: 1517022225}
+  - {fileID: 1401157030}
+  - {fileID: 1161435094}
+  - {fileID: 424425417}
+  - {fileID: 2026846021}
+  - {fileID: 1897956981}
+  ObjectToInactivate:
+  - {fileID: 878111386}
+  - {fileID: 1186217957}
+  - {fileID: 903789007}
+  - {fileID: 1653693610}
+  - {fileID: 1354220960}
+  - {fileID: 1633328004}
+  - {fileID: 340961027}
 --- !u!1 &1653693610
 GameObject:
   m_ObjectHideFlags: 0
@@ -2147,7 +2335,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1653693611
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2160,7 +2348,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 878111387}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2587,10 +2775,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectToActivate:
-  - {fileID: 825221218}
-  ObjectToInactivate: []
-  ActTag: sidemenu
-  InactTag: bottom
+  - {fileID: 878111386}
+  - {fileID: 1633328004}
+  - {fileID: 903789007}
+  - {fileID: 1653693610}
+  - {fileID: 1354220960}
+  - {fileID: 340961027}
+  - {fileID: 1186217957}
+  ObjectToInactivate:
+  - {fileID: 1157033243}
+  - {fileID: 1401157030}
+  - {fileID: 1517022225}
+  - {fileID: 1161435094}
+  - {fileID: 424425417}
+  - {fileID: 2026846021}
+  - {fileID: 1897956981}
 --- !u!224 &3635003953532798185 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3635003953532798185, guid: 546ebe86a32014bd286d05b342bcd1b3,
@@ -2608,6 +2807,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: task
+      objectReference: {fileID: 0}
+    - target: {fileID: 555871592041787283, guid: 546ebe86a32014bd286d05b342bcd1b3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3635003953532798185, guid: 546ebe86a32014bd286d05b342bcd1b3,
         type: 3}
@@ -2717,7 +2921,17 @@ PrefabInstance:
     - target: {fileID: 5699071160609219427, guid: 546ebe86a32014bd286d05b342bcd1b3,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699071161201314671, guid: 546ebe86a32014bd286d05b342bcd1b3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699071161581219245, guid: 546ebe86a32014bd286d05b342bcd1b3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 546ebe86a32014bd286d05b342bcd1b3, type: 3}
