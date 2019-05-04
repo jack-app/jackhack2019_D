@@ -5,10 +5,11 @@ using UnityEngine;
 public class Button : MonoBehaviour
 {
     //変数宣言
-    public GameObject[] ObjectToActivate, ObjectToInactivate;
+    public List<GameObject> ObjectToActivate, ObjectToInactivate;
 
     // 有効化
     public void Activate (){
+        ObjectToActivate.AddRange(GameObject.FindGameObjectsWithTag(""));
         foreach(GameObject act in ObjectToActivate){
             act.SetActive(true);
         }
@@ -16,7 +17,8 @@ public class Button : MonoBehaviour
 
     // 無効化
     public void Inactivate (){
-        foreach(GameObject inact in ObjectToInactivate){
+        ObjectToActivate.AddRange(GameObject.FindGameObjectsWithTag(""));
+        foreach (GameObject inact in ObjectToInactivate){
             inact.SetActive(false);
         }
     }
