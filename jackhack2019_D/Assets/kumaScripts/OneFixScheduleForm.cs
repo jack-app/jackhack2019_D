@@ -9,6 +9,7 @@ public class OneFixScheduleForm : OneScheduleForm
     public Dropdown minutesend;
     public Dropdown month;
     public Dropdown day;
+    public ToggleGroup toggle;
 
     // Start is called before the first frame update
     void Start()
