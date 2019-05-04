@@ -31,9 +31,13 @@ public class ScheduleDate : MonoBehaviour
     {
         haveto = 2;
         SetTitle(form.titlebox);
-        WriteMemo(form.memobox);
+        if (form.memobox != null)
+        {
+            WriteMemo(form.memobox);
+        }
         SetTime(form.hour, form.minutes);
 
         return this;
     }
+
 }

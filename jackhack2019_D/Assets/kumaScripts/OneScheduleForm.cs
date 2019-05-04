@@ -7,9 +7,7 @@ public class OneScheduleForm : MonoBehaviour
 {
 
     public Text titlebox;
-    public Text categorybox;
     public Text memobox;
-    public Toggle anouncebox;
     public Dropdown hour;
     public Dropdown minutes;
 
@@ -30,4 +28,8 @@ public class OneScheduleForm : MonoBehaviour
         Destroy(gameObject);
     }
    
+    public void Cancel()
+    {
+        Destroy(gameObject);
+    }
 }
