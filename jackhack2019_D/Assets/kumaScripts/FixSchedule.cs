@@ -10,6 +10,7 @@ public class FixSchedule : ScheduleDate
     public DayOfWeek daze;
     public Repeat repeat;
     
+    
 
     public void SetTime(Dropdown hour,Dropdown minutes,Dropdown hourend,Dropdown minutesend)
     {
@@ -21,14 +22,27 @@ public class FixSchedule : ScheduleDate
     {
         daze = (DayOfWeek)week.value;
     }
+    public void SetRepeat(Toggle t)
+    {
+        if(t.isOn == false)
+        {
+            repeat = Repeat.day;
+        }
+        else
+        {
+            repeat = Repeat.week;
+        }
+    }
 
     public FixSchedule SetAll(FixScheduleForm form)
     {
         SetTime(form.hour, form.minutes, form.hourend, form.minutesend);
-        SetWeek(form.week);
+        if (repeat == Repeat.week)
+        {
+            SetWeek(form.week);
+        }
         SetTitle(form.titlebox);
-        SetCategory(form.categorybox);
-        SetAnounce(form.anouncebox);
+        
         WriteMemo(form.memobox);
 
         return this;
@@ -38,7 +52,6 @@ public class FixSchedule : ScheduleDate
 public enum Repeat
 {
     day = 0,
-    week = 1,
-    month = 2
+    week = 1
 }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
+using System.Linq;
 
 public class OneFixSchedule : ScheduleDate
 {
@@ -26,13 +27,21 @@ public class OneFixSchedule : ScheduleDate
         }
     }
 
+    
+
     public OneFixSchedule SetAll(OneFixScheduleForm form)
     {
+        haveto = 4;
         SetTime(form.hour, form.minutes, form.hourend, form.minutesend);
-        SetWeek(form.month,form.day);
+        if (form.month != null)
+        {
+            SetWeek(form.month, form.day);
+        }
+        else
+        {
+            date = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+        }
         SetTitle(form.titlebox);
-        SetCategory(form.categorybox);
-        SetAnounce(form.anouncebox);
         WriteMemo(form.memobox);
 
         return this;

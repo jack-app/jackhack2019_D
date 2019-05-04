@@ -8,6 +8,8 @@ public class FixScheduleForm : OneScheduleForm
     public Dropdown hourend;
     public Dropdown minutesend;
     public Dropdown week;
+    public ToggleGroup toggleGroup;
+    
     
     void Start()
     {
