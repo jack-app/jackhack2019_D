@@ -20,9 +20,17 @@ public class TodayTaskView : MonoBehaviour
     public GameObject banana3;
 
     // Start is called before the first frame update
-    void Start()
+    void Update()
     {
-        
+        if(date1 != null)
+        {
+            resttime.text = (date1.starttime + date1.spendtime - new TimeSpan(DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second)).ToString();
+        }
+
+        if(date2 != null)
+        {
+            resttime.text = (date2.starttime + date2.spendtime - new TimeSpan(DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second)).ToString();
+        }
     }
 
     public void SetContents()

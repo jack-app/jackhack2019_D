@@ -30,9 +30,10 @@ public class RestoreSchedules : MonoBehaviour
         
         foreach(var sc in date1)
         {
-            GameObject obj = (GameObject)Resources.Load("TodayTaskView");
+            GameObject obj = (GameObject)Resources.Load("task");
             var child = Instantiate(obj, Vector2.zero, Quaternion.identity, scroll.transform);
             child.GetComponent<TodayTaskView>().date = sc;
+            child.GetComponent<TodayTaskView>().SetContents();
         }
     }
 
@@ -41,9 +42,10 @@ public class RestoreSchedules : MonoBehaviour
        
         foreach (var sc in date2)
         {
-            GameObject obj = (GameObject)Resources.Load("TodayTaskView");
+            GameObject obj = (GameObject)Resources.Load("task");
             var child = Instantiate(obj, Vector2.zero, Quaternion.identity, scroll.transform);
             child.GetComponent<TodayTaskView>().date1 = sc;
+            child.GetComponent<TodayTaskView>().SetContents();
         }
     }
 
@@ -53,9 +55,10 @@ public class RestoreSchedules : MonoBehaviour
         
         foreach (var sc in date3)
         {
-            GameObject obj = (GameObject)Resources.Load("TodayTaskView");
+            GameObject obj = (GameObject)Resources.Load("task");
             var child = Instantiate(obj, Vector2.zero, Quaternion.identity, scroll.transform);
             child.GetComponent<TodayTaskView>().date2 = sc;
+            child.GetComponent<TodayTaskView>().SetContents();
         }
     }
 
@@ -82,9 +85,10 @@ public class RestoreSchedules : MonoBehaviour
                 time[i + sc.starttime.Hours * 12 + sc.starttime.Minutes / 5] = true;
             }
 
-            GameObject obj = (GameObject)Resources.Load("TodayTaskView");
+            GameObject obj = (GameObject)Resources.Load("task");
             var child = Instantiate(obj, Vector2.zero, Quaternion.identity, scroll.transform);
             child.GetComponent<TodayTaskView>().date1 = sc;
+            child.GetComponent<TodayTaskView>().SetContents();
         }
 
         foreach (var sc in schedules3)
@@ -94,9 +98,10 @@ public class RestoreSchedules : MonoBehaviour
                 time[i + sc.starttime.Hours * 12 + sc.starttime.Minutes / 5] = true;
             }
 
-            GameObject obj = (GameObject)Resources.Load("TodayTaskView");
+            GameObject obj = (GameObject)Resources.Load("task");
             var child = Instantiate(obj, Vector2.zero, Quaternion.identity, scroll.transform);
             child.GetComponent<TodayTaskView>().date2 = sc;
+            child.GetComponent<TodayTaskView>().SetContents();
         }
 
         foreach (var sc in schedules1)
@@ -116,9 +121,10 @@ public class RestoreSchedules : MonoBehaviour
                             time[i + k] = true;
                         }
                         //TODO:生成コード書く & makedに登録
-                        GameObject obj = (GameObject)Resources.Load("TodayTaskView");
+                        GameObject obj = (GameObject)Resources.Load("task");
                         var child = Instantiate(obj, Vector2.zero, Quaternion.identity, scroll.transform);
                         child.GetComponent<TodayTaskView>().date = sc;
+                        child.GetComponent<TodayTaskView>().SetContents();
                         goto Next;
                     }
                 }
