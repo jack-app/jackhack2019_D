@@ -10,13 +10,13 @@ public class RestoreSchedules : MonoBehaviour
     public List<ScheduleDate> date1 = new List<ScheduleDate>();
     public List<FixSchedule> date2 = new List<FixSchedule>();
     public List<OneFixSchedule> date3 = new List<OneFixSchedule>();
-    public List<GameObject> maked = new List<GameObject>();
-    public 
+    public GameObject scroll;
+    public State state;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        state = State.today;
     }
 
     // Update is called once per frame
@@ -27,41 +27,38 @@ public class RestoreSchedules : MonoBehaviour
 
     public void AllScheduledate()
     {
-        foreach (var dest in maked)
-        {
-            Destroy(dest);
-        }
-        maked.Clear();
+        
         foreach(var sc in date1)
         {
-            //TODO:生成コード書く & makedに登録
+            GameObject obj = (GameObject)Resources.Load("task");
+            var child = Instantiate(obj, Vector2.zero, Quaternion.identity, scroll.transform);
+            child.GetComponent<TodayTaskView>().date = sc;
+            child.GetComponent<TodayTaskView>().SetContents();
         }
     }
 
     public void AllFixSchedule()
     {
-        foreach (var dest in maked)
-        {
-            Destroy(dest);
-        }
-        maked.Clear();
+       
         foreach (var sc in date2)
         {
-            //TODO:生成コード書く & makedに登録
+            GameObject obj = (GameObject)Resources.Load("task");
+            var child = Instantiate(obj, Vector2.zero, Quaternion.identity, scroll.transform);
+            child.GetComponent<TodayTaskView>().date1 = sc;
+            child.GetComponent<TodayTaskView>().SetContents();
         }
     }
 
     public void AllOneFixSchedule()
     {
 
-        foreach (var dest in maked)
-        {
-            Destroy(dest);
-        }
-        maked.Clear();
+        
         foreach (var sc in date3)
         {
-            //TODO:生成コード書く & makedに登録
+            GameObject obj = (GameObject)Resources.Load("task");
+            var child = Instantiate(obj, Vector2.zero, Quaternion.identity, scroll.transform);
+            child.GetComponent<TodayTaskView>().date2 = sc;
+            child.GetComponent<TodayTaskView>().SetContents();
         }
     }
 
@@ -77,11 +74,7 @@ public class RestoreSchedules : MonoBehaviour
 
     public void MakeTodayTask()
     {
-        foreach(var dest in maked)
-        {
-            Destroy(dest);
-        }
-        maked.Clear();
+        
         bool[] time = new bool[288];
         
         TodaySchedule(out List<ScheduleDate> schedules1, out List<FixSchedule> schedules2, out List<OneFixSchedule> schedules3);
@@ -91,7 +84,11 @@ public class RestoreSchedules : MonoBehaviour
             {
                 time[i + sc.starttime.Hours * 12 + sc.starttime.Minutes / 5] = true;
             }
-            //TODO:生成コード書く & makedに登録
+
+            GameObject obj = (GameObject)Resources.Load("task");
+            var child = Instantiate(obj, Vector2.zero, Quaternion.identity, scroll.transform);
+            child.GetComponent<TodayTaskView>().date1 = sc;
+            child.GetComponent<TodayTaskView>().SetContents();
         }
 
         foreach (var sc in schedules3)
@@ -100,7 +97,11 @@ public class RestoreSchedules : MonoBehaviour
             {
                 time[i + sc.starttime.Hours * 12 + sc.starttime.Minutes / 5] = true;
             }
-            //TODO:生成コード書く & makedに登録
+
+            GameObject obj = (GameObject)Resources.Load("task");
+            var child = Instantiate(obj, Vector2.zero, Quaternion.identity, scroll.transform);
+            child.GetComponent<TodayTaskView>().date2 = sc;
+            child.GetComponent<TodayTaskView>().SetContents();
         }
 
         foreach (var sc in schedules1)
@@ -120,6 +121,10 @@ public class RestoreSchedules : MonoBehaviour
                             time[i + k] = true;
                         }
                         //TODO:生成コード書く & makedに登録
+                        GameObject obj = (GameObject)Resources.Load("task");
+                        var child = Instantiate(obj, Vector2.zero, Quaternion.identity, scroll.transform);
+                        child.GetComponent<TodayTaskView>().date = sc;
+                        child.GetComponent<TodayTaskView>().SetContents();
                         goto Next;
                     }
                 }
@@ -127,11 +132,13 @@ public class RestoreSchedules : MonoBehaviour
             Next:;
         }
     }
+
 }
 
 public enum State
 {
     today = 0,
     everyday = 1,
-    want = 2
+    want = 2,
+    anounce = 3
 }
