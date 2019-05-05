@@ -42,7 +42,14 @@ public class OneFixSchedule : ScheduleDate
             date = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
         }
         SetTitle(form.titlebox);
-        WriteMemo(form.memobox);
+        if (form.memobox != null)
+        {
+            WriteMemo(form.memobox.text);
+        }
+        else
+        {
+            WriteMemo("");
+        }
 
         return this;
     }

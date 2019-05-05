@@ -42,8 +42,15 @@ public class FixSchedule : ScheduleDate
             SetWeek(form.week);
         }
         SetTitle(form.titlebox);
-        
-        WriteMemo(form.memobox);
+
+        if (form.memobox != null)
+        {
+            WriteMemo(form.memobox.text);
+        }
+        else
+        {
+            WriteMemo("");
+        }
 
         return this;
     }

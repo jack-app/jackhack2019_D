@@ -10,6 +10,7 @@ public class RestoreSchedules : MonoBehaviour
     public List<ScheduleDate> date1 = new List<ScheduleDate>();
     public List<FixSchedule> date2 = new List<FixSchedule>();
     public List<OneFixSchedule> date3 = new List<OneFixSchedule>();
+    public List<GameObject> maked = new List<GameObject>();
     public GameObject scroll;
     public State state;
 
@@ -27,38 +28,53 @@ public class RestoreSchedules : MonoBehaviour
 
     public void AllScheduledate()
     {
-        
+        foreach(var t in maked)
+        {
+            Destroy(t);
+        }
+        maked.Clear();
         foreach(var sc in date1)
         {
             GameObject obj = (GameObject)Resources.Load("task");
             var child = Instantiate(obj, Vector2.zero, Quaternion.identity, scroll.transform);
             child.GetComponent<TodayTaskView>().date = sc;
             child.GetComponent<TodayTaskView>().SetContents();
+            maked.Add(child);
         }
     }
 
     public void AllFixSchedule()
     {
-       
+        foreach (var t in maked)
+        {
+            Destroy(t);
+        }
+        maked.Clear();
         foreach (var sc in date2)
         {
             GameObject obj = (GameObject)Resources.Load("task");
             var child = Instantiate(obj, Vector2.zero, Quaternion.identity, scroll.transform);
             child.GetComponent<TodayTaskView>().date1 = sc;
             child.GetComponent<TodayTaskView>().SetContents();
+            maked.Add(child);
         }
     }
 
     public void AllOneFixSchedule()
     {
 
-        
+        foreach (var t in maked)
+        {
+            Destroy(t);
+        }
+        maked.Clear();
         foreach (var sc in date3)
         {
             GameObject obj = (GameObject)Resources.Load("task");
             var child = Instantiate(obj, Vector2.zero, Quaternion.identity, scroll.transform);
             child.GetComponent<TodayTaskView>().date2 = sc;
             child.GetComponent<TodayTaskView>().SetContents();
+            maked.Add(child);
         }
     }
 
@@ -74,7 +90,11 @@ public class RestoreSchedules : MonoBehaviour
 
     public void MakeTodayTask()
     {
-        
+        foreach (var t in maked)
+        {
+            Destroy(t);
+        }
+        maked.Clear();
         bool[] time = new bool[288];
         
         TodaySchedule(out List<ScheduleDate> schedules1, out List<FixSchedule> schedules2, out List<OneFixSchedule> schedules3);
@@ -89,6 +109,7 @@ public class RestoreSchedules : MonoBehaviour
             var child = Instantiate(obj, Vector2.zero, Quaternion.identity, scroll.transform);
             child.GetComponent<TodayTaskView>().date1 = sc;
             child.GetComponent<TodayTaskView>().SetContents();
+            maked.Add(child);
         }
 
         foreach (var sc in schedules3)
@@ -102,6 +123,7 @@ public class RestoreSchedules : MonoBehaviour
             var child = Instantiate(obj, Vector2.zero, Quaternion.identity, scroll.transform);
             child.GetComponent<TodayTaskView>().date2 = sc;
             child.GetComponent<TodayTaskView>().SetContents();
+            maked.Add(child);
         }
 
         foreach (var sc in schedules1)
@@ -120,17 +142,38 @@ public class RestoreSchedules : MonoBehaviour
                         {
                             time[i + k] = true;
                         }
-                        //TODO:生成コード書く & makedに登録
+
                         GameObject obj = (GameObject)Resources.Load("task");
                         var child = Instantiate(obj, Vector2.zero, Quaternion.identity, scroll.transform);
                         child.GetComponent<TodayTaskView>().date = sc;
                         child.GetComponent<TodayTaskView>().SetContents();
+                        maked.Add(child);
                         goto Next;
                     }
                 }
             }
             Next:;
         }
+    }
+
+    public void SetStateToday()
+    {
+        state = State.today;
+    }
+    
+    public void SetStateEveryday()
+    {
+        state = State.everyday;
+    }
+
+    public void SetStateWant()
+    {
+        state = State.want;
+    }
+
+    public void SetStateAnounce()
+    {
+        state = State.anounce;
     }
 
 }

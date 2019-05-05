@@ -16,9 +16,9 @@ public class ScheduleDate : MonoBehaviour
         title = titlebox.text;
     }
 
-    public void WriteMemo(Text memobox)
+    public void WriteMemo(string memobox)
     {
-        memo = memobox.text;
+        memo = memobox;
     }
 
 
@@ -33,7 +33,10 @@ public class ScheduleDate : MonoBehaviour
         SetTitle(form.titlebox);
         if (form.memobox != null)
         {
-            WriteMemo(form.memobox);
+            WriteMemo(form.memobox.text);
+        }else
+        {
+            WriteMemo("");
         }
         SetTime(form.hour, form.minutes);
 
