@@ -57,6 +57,7 @@ public class TodayTaskView : MonoBehaviour
             {
                 banana3.SetActive(true);
             }
+            Debug.Log(date1.haveto);
         }
         else if (date2 != null)
         {
@@ -75,6 +76,7 @@ public class TodayTaskView : MonoBehaviour
             {
                 banana3.SetActive(true);
             }
+            Debug.Log(date2.haveto);
         }
 
     }

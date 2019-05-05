@@ -14,7 +14,7 @@ public class OneFixSchedule : ScheduleDate
     public void SetTime(Dropdown hour,Dropdown minutes, Dropdown hourend,Dropdown minutesend)
     {
         starttime = new TimeSpan(hour.value, minutes.value, 0);
-        spendtime = starttime - new TimeSpan(hourend.value, minutesend.value, 0);
+        spendtime = new TimeSpan(hourend.value, minutesend.value, 0) - starttime;
     }
 
     public void SetWeek(Dropdown month,Dropdown day)
@@ -28,6 +28,10 @@ public class OneFixSchedule : ScheduleDate
     }
     public void SetHaveto(ToggleGroup toggle)
     {
+        foreach(var s in toggle.ActiveToggles())
+        {
+            Debug.Log(s);
+        }
         string tag = toggle.ActiveToggles().First().tag;
         int.TryParse(tag, out haveto);
     }
@@ -38,6 +42,7 @@ public class OneFixSchedule : ScheduleDate
     {
         SetHaveto(form.toggle);
         SetTime(form.hour, form.minutes, form.hourend, form.minutesend);
+
         if (form.month != null)
         {
             SetWeek(form.month, form.day);

@@ -16,7 +16,7 @@ public class FixSchedule : ScheduleDate
     public void SetTime(Dropdown hour,Dropdown minutes,Dropdown hourend,Dropdown minutesend)
     {
         starttime = new TimeSpan(hour.value, minutes.value, 0);
-        spendtime = starttime - new TimeSpan(hourend.value, minutesend.value, 0);
+        spendtime =  new TimeSpan(hourend.value, minutesend.value, 0)- starttime;
     }
 
     public void SetWeek(ToggleGroup week)
@@ -44,6 +44,14 @@ public class FixSchedule : ScheduleDate
         }
     }
 
+    public void SetHaveto(ToggleGroup toggle)
+    {
+      
+        string tag = toggle.ActiveToggles().First().tag;
+        Debug.Log(tag);
+        int.TryParse(tag, out haveto);
+        Debug.Log(haveto);
+    }
 
     public FixSchedule SetAll(FixScheduleForm form)
     {
@@ -53,6 +61,8 @@ public class FixSchedule : ScheduleDate
             SetWeek(form.week);
         }
         SetTitle(form.titlebox);
+
+        SetHaveto(form.toggleGroup);
 
         if (form.memobox != null)
         {
