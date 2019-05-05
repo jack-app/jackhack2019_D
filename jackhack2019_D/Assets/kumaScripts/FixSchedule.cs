@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
+using System.Linq;
 
 public class FixSchedule : ScheduleDate
 {
@@ -18,9 +19,18 @@ public class FixSchedule : ScheduleDate
         spendtime = starttime - new TimeSpan(hourend.value, minutesend.value, 0);
     }
 
-    public void SetWeek(Dropdown week)
+    public void SetWeek(ToggleGroup week)
     {
-        daze = (DayOfWeek)week.value;
+        string temp = week.ActiveToggles().First().GetComponentInChildren<Text>().text;
+        switch (temp) {
+            case "日":  daze = DayOfWeek.Sunday;break;
+            case "月": daze = DayOfWeek.Monday; break;
+            case "火": daze = DayOfWeek.Tuesday;break;
+            case "水": daze = DayOfWeek.Wednesday; break;
+            case "木": daze = DayOfWeek.Thursday; break;
+            case "金": daze = DayOfWeek.Friday; break;
+            case "土": daze = DayOfWeek.Saturday; break;
+        }
     }
     public void SetRepeat(Toggle t)
     {
@@ -33,6 +43,7 @@ public class FixSchedule : ScheduleDate
             repeat = Repeat.week;
         }
     }
+
 
     public FixSchedule SetAll(FixScheduleForm form)
     {
@@ -53,6 +64,13 @@ public class FixSchedule : ScheduleDate
         }
 
         return this;
+    }
+
+    public new void Comp()
+    {
+        GameObject.Find("Admin").GetComponent<RestoreSchedules>().date2.Remove(this);
+        GameObject.Find("Admin").GetComponent<RestoreSchedules>().maked.Remove(gameObject);
+        Destroy(gameObject);
     }
 }
 

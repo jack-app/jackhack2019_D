@@ -26,12 +26,17 @@ public class OneFixSchedule : ScheduleDate
             date = new DateTime(DateTime.Now.Year + 1, month.value + 1, day.value + 1);
         }
     }
+    public void SetHaveto(ToggleGroup toggle)
+    {
+        string tag = toggle.ActiveToggles().First().tag;
+        int.TryParse(tag, out haveto);
+    }
 
     
 
     public OneFixSchedule SetAll(OneFixScheduleForm form)
     {
-        haveto = 4;
+        SetHaveto(form.toggle);
         SetTime(form.hour, form.minutes, form.hourend, form.minutesend);
         if (form.month != null)
         {
@@ -52,5 +57,12 @@ public class OneFixSchedule : ScheduleDate
         }
 
         return this;
+    }
+
+    public new void Comp()
+    {
+        GameObject.Find("Admin").GetComponent<RestoreSchedules>().date3.Remove(this);
+        GameObject.Find("Admin").GetComponent<RestoreSchedules>().maked.Remove(gameObject);
+        Destroy(gameObject);
     }
 }

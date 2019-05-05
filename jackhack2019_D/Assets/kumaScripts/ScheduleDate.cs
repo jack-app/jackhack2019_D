@@ -43,4 +43,11 @@ public class ScheduleDate : MonoBehaviour
         return this;
     }
 
+    public void Comp()
+    {
+        GameObject.Find("Admin").GetComponent<RestoreSchedules>().date1.Remove(this);
+        GameObject.Find("Admin").GetComponent<RestoreSchedules>().maked.Remove(gameObject);
+        Destroy(gameObject);
+    }
+
 }
